@@ -5,7 +5,9 @@ import Stripe from "stripe";
 import { attemptRefund } from "../services/refundService.js";
 import { assignRiderToOrder } from "../services/riderAssignmentService.js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY)
+  : null;
 const CURRENCY = "inr";
 const BASE_DELIVERY = 17;
 const PER_KM_RATE = 4;
@@ -62,6 +64,13 @@ const triggerRiderAssignment = async (orderId, customerLocation) => {
 
 const placeOrder = async (req, res) => {
   try {
+    if (!stripe) {
+      return res.status(503).json({
+        success: false,
+        message: "Online payment is currently unavailable",
+      });
+    }
+
     const { items, userId, address, couponCode, customerLocation } = req.body;
 
     if (!items || items.length === 0)
@@ -217,6 +226,13 @@ const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
   try {
     if (success === "true") {
+      if (!stripe) {
+        return res.status(503).json({
+          success: false,
+          message: "Online payment is currently unavailable",
+        });
+      }
+
       const order = await orderModel.findById(orderId);
       if (!order) return res.json({ success: false, message: "Order not found" });
 

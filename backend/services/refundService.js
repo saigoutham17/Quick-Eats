@@ -2,7 +2,9 @@ import Stripe from "stripe";
 import adminAlertModel from "../models/adminAlertModel.js";
 import orderModel from "../models/orderModel.js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY)
+  : null;
 const MAX_REFUND_RETRIES = 5;
 
 const logRefundFailure = async (order, errorMessage) => {
@@ -19,6 +21,14 @@ const logRefundFailure = async (order, errorMessage) => {
 };
 
 const attemptRefund = async (order) => {
+  if (!stripe) {
+    return {
+      refunded: false,
+      attempted: false,
+      reason: "Stripe is not configured",
+    };
+  }
+
   if (order.paymentMethod !== "stripe" || order.payment !== true || order.refunded) {
     await order.save();
     return { refunded: order.refunded === true, attempted: false };
