@@ -18,22 +18,17 @@
 
 A production-grade **multi-restaurant food delivery platform** built on the **MERN stack** and deployed fully serverless on **Vercel**. Quick Eats lets customers discover nearby restaurants, order food (online or COD), track deliveries in real time, and cancel with automatic Stripe refunds — backed by a strict order-status ownership model, a decoupled refund state machine, cron-based rider assignment, and Redis-cached read paths.
 
-Five independent apps, one shared backend:
+## 🚀 Live Demo
 
-| App | Purpose |
-|
+Experience the platform live directly in your browser:
 
-## 🌐 Live Demo
-
-Experience the platform live directly in your browser without needing to download or run anything locally:
-
-| Application | Live Demo URL | Purpose |
+| Panel | Link | Purpose |
 |---|---|---|
-| **🍔 Customer App** | [https://qucik-eats-8xpn.vercel.app/](https://qucik-eats-8xpn.vercel.app/) | Browse restaurants, add to cart, live order tracking |
-| **🍽️ Restaurant Panel** | *To be deployed* | Accept orders, food preparation status, menu management |
-| **🛵 Rider Portal** | *To be deployed* | Accept deliveries, navigation simulation, earnings |
-| **👑 Super Admin** | *To be deployed* | Approvals, platform analytics, refund alerts |
-| **⚡ Backend API** | *Pending live database* | Serverless REST API & Swagger docs |
+| 🛒 **Customer** | [Open Customer App](https://quick-eats-8xpn.vercel.app/) | Browse restaurants, add to cart, live order tracking |
+| 🍴 **Restaurant** | [Open Restaurant Panel](https://quick-eats-ruby.vercel.app/) | Accept orders, food preparation status, menu management |
+| 🚴 **Rider** | [Open Rider Panel](https://quick-eats-rider.vercel.app/) | Accept deliveries, navigation simulation, earnings |
+| 👑 **Super Admin** | [Open Super Admin Panel](https://quick-eats-2s4f.vercel.app/) | Approvals, platform analytics, refund alerts |
+| 🔗 **Backend API** | [Open Backend](https://quick-eeats-backend.onrender.com/) | REST API & Swagger documentation |
 
 ## ✨ Key Highlights
 
@@ -44,14 +39,7 @@ Experience the platform live directly in your browser without needing to downloa
 - Cron-driven rider assignment designed for serverless environments
 - Upstash Redis caching for high-traffic read endpoints
 - Real-time order lifecycle with strict status ownership
-- Docker-ready local development and Vercel deployment
-
----|---|
-| **Customer Frontend** | Browse, order, track, cancel, rate |
-| **Restaurant Panel** | Accept/reject orders, manage menu, set location |
-| **Rider Portal** | Accept deliveries, track earnings, update status |
-| **Super Admin Panel** | Platform-wide oversight: restaurants, riders, orders, refunds, feedback |
-| **Backend API** | Node/Express REST API on Vercel serverless functions |
+- Docker-ready local development and cloud deployment
 
 ---
 
