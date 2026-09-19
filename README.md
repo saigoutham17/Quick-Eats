@@ -24,7 +24,7 @@ Experience the platform live directly in your browser:
 
 | Panel | Link | Purpose |
 |---|---|---|
-| 🛒 **Customer** | [Open Customer App](https://quick-eats-8xpn.vercel.app/) | Browse restaurants, add to cart, live order tracking |
+| 🛒 **Customer** | [Open Customer App](https://qucik-eats-8xpn.vercel.app/) | Browse restaurants, add to cart, live order tracking |
 | 🍴 **Restaurant** | [Open Restaurant Panel](https://quick-eats-ruby.vercel.app/) | Accept orders, food preparation status, menu management |
 | 🚴 **Rider** | [Open Rider Panel](https://quick-eats-rider.vercel.app/) | Accept deliveries, navigation simulation, earnings |
 | 👑 **Super Admin** | [Open Super Admin Panel](https://quick-eats-2s4f.vercel.app/) | Approvals, platform analytics, refund alerts |
